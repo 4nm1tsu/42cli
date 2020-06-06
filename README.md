@@ -1,6 +1,5 @@
 # 42cli
 
-[![codecov](https://codecov.io/gh/dhaiibfiukkiu/42cli/branch/master/graph/badge.svg?token=AYUREEQZJI)](https://codecov.io/gh/dhaiibfiukkiu/42cli)
 <p align="center"><img src="https://user-images.githubusercontent.com/40907120/83941623-cb867900-a827-11ea-970f-1058c0fdd303.png"></p>
 <p align="center"><a href="https://codecov.io/gh/dhaiibfiukkiu/42cli"><img src="https://codecov.io/gh/dhaiibfiukkiu/42cli/branch/master/graph/badge.svg?token=AYUREEQZJI"></a></p>
 <p align="center">command line tool for 42 intra.</p>
