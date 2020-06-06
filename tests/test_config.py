@@ -27,30 +27,39 @@ class TestConfig():
         if os.path.exists(ROOT_DIR+'/config.dat'):
             os.remove(ROOT_DIR+'/config.dat')
 
-    def test_configGetFail(self, capfd):
+    def test_configGet(self, api_config, capfd):
         # config fileが存在しない場合
         config.configGet(False)
         out, err = capfd.readouterr()
         assert len(out) == 0
-        assert '' in err
+        assert "You've not set up API settings!" in err
 
-    def test_configGetSuccess(self, api_config, capfd):
         # config fileが存在する場合
         # config file 作成
         with open(ROOT_DIR+'/config.dat', 'wb') as fp:
             pickle.dump(api_config, fp)
-
         config.configGet(True)
         out, err = capfd.readouterr()
         assert 'hoge' in out
         assert 'fuga' in out
         assert len(err) == 0
 
-    def test_configCommand(self):
-        pass
+    def test_configDelete(self, capfd):
+        # config fileが存在しない場合
+        config.configDelete()
+        out, err = capfd.readouterr()
+        assert "configuration does not exist." in err
 
-    def test_configFlow(self):
-        # config.configSet()
+        # config fileが存在する場合
+        # config file 作成
+        with open(ROOT_DIR+'/config.dat', 'wb') as fp:
+            pickle.dump(api_config, fp)
+        #config.configDelete()
+        #out, err = capfd.readouterr()
+
+        #assert os.path.exists(ROOT_DIR+'/config.dat')
+
+    def test_configCommand(self):
         pass
 
 
