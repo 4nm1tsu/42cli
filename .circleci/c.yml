@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build-and-test:
+  build:
     docker:
       - image: circleci/python:3.8.2
     working_directory: ~/work
@@ -22,11 +22,30 @@ jobs:
             - ".venv"
             - "/usr/local/bin"
             - "/usr/local/lib/python3.8/site-packages"
+      - persist_to_workspace:
+          root: /home/circleci/work
+          paths:
+            - work
+            - .cache/pypoetry
+  test:
+    docker:
+      - image: circleci/python:3.8.2
+    working_directory: ~/work
+    steps:
+      - attach_workspace:
+          at: /home/circleci/work
       - run:
           command: |
-            poetry run pytest
+            poetry
+            poetry show
+            poetry build
+            poetry shell
+            pytest
 
 workflows:
   build_and_test:
     jobs:
-      - build-and-test
+      - build
+      - test:
+          requires:
+            - build
