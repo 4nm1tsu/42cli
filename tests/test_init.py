@@ -4,12 +4,13 @@
 import importlib
 import pickle
 import os
+from unittest import mock
 
 import pytest
 
 from definitions import ROOT_DIR
 init_ = importlib.import_module("42cli.init")
-# from 42cli.init import CONFIG_FILE
+const = importlib.import_module("42cli.const")
 
 
 @pytest.fixture
@@ -20,16 +21,24 @@ def api_config():
 class Testinit_():
     @classmethod
     def setup_class(cls):
-        if os.path.exists(ROOT_DIR+'/'+init_.CONFIG_FILE):
-            os.remove(ROOT_DIR+'/'+init_.CONFIG_FILE)
+        if os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
+            os.remove(ROOT_DIR+'/'+const.CONFIG_FILE)
 
     def teardown_method(self, method):
-        if os.path.exists(ROOT_DIR+'/'+init_.CONFIG_FILE):
-            os.remove(ROOT_DIR+'/'+init_.CONFIG_FILE)
+        if os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
+            os.remove(ROOT_DIR+'/'+const.CONFIG_FILE)
 
-    def test_init(self, api_config, capfd):
-        # init_.init()
-        pass
+    @mock.patch('42cli.init.inquirer.prompt')
+    def test_init(self, inquirerMock, api_config):
+        inquirerMock.return_value = {
+            'uid': 'hoge',
+            'secret': 'fuga',
+        }
+        init_.init()
+        with open(ROOT_DIR+'/'+const.CONFIG_FILE, 'rb') as fp:
+            config = pickle.load(fp)
+        assert api_config.uid == config.uid
+        assert api_config.secret == config.secret
 
 
 if __name__ == '__main__':
