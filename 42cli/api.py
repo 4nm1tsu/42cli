@@ -5,6 +5,7 @@ import urllib.request
 import urllib.parse
 import json
 import importlib
+import sys
 
 import click
 
@@ -22,6 +23,6 @@ def apiGetUsers(auth_info):
             api_response = json.loads(response.read().decode("utf-8"))
     except Exception:
         click.secho(const.MSG_API_ACCESS_ERROR, fg='red')
-        exit()
+        sys.exit(1)
     else:
         return api_response

@@ -3,6 +3,7 @@
 
 import importlib
 import os
+import sys
 
 import click
 
@@ -15,7 +16,7 @@ show_username = importlib.import_module("42cli.show_username")
 def checkConfigExists():
     if not os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
         click.secho(const.MSG_NO_CONFIG_FOUND, fg='red')
-        exit()
+        sys.exit(1)
 
 
 @click.group()
