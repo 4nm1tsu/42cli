@@ -21,9 +21,18 @@ class Cache:
         self.deadline = deadline
 
 
+def openFileToWrite(path, content):
+    with open(path, 'wb') as fp:
+        pickle.dump(content, fp)
+
+
+def openFileToRead(path):
+    with open(path, 'rb') as fp:
+        return pickle.load(fp)
+
+
 def authorize():
-    with open(ROOT_DIR+'/'+const.CONFIG_FILE, 'rb') as fp:
-        config = pickle.load(fp)
+    config = openFileToRead(ROOT_DIR+'/'+const.CONFIG_FILE)
     data = {
             "grant_type": "client_credentials",
             "client_id": config.uid,
@@ -35,8 +44,10 @@ def authorize():
         auth_info = json.loads(res.read().decode("utf-8"))
     # cacheに保存
     deadline = time.time() + int(auth_info['expires_in'])
-    with open(ROOT_DIR+'/'+const.CACHE_FILE, 'wb') as fp:
-        pickle.dump(Cache(auth_info, deadline), fp)
+    openFileToWrite(
+        ROOT_DIR+'/'+const.CACHE_FILE,
+        Cache(auth_info, deadline)
+    )
 
     return auth_info
 
@@ -44,8 +55,7 @@ def authorize():
 def getAuthInfo():
     # cacheが存在する場合
     if os.path.exists(ROOT_DIR+'/'+const.CACHE_FILE):
-        with open(ROOT_DIR+'/'+const.CACHE_FILE, 'rb') as fp:
-            cache = pickle.load(fp)
+        cache = openFileToRead(ROOT_DIR+'/'+const.CACHE_FILE)
         # 期限OK
         if cache.deadline > time.time():
             auth_info = cache.auth
