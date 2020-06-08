@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
+import importlib
 import click
 
-from . import init as it
+# import init as init_
+init_ = importlib.import_module("42cli.init")
 
 
 @click.group()
@@ -11,22 +13,22 @@ def fourty_two():
     pass
 
 
-@fourty_two.command(help="initialize settings.")
+@fourty_two.command(help="initializes settings.")
 def init():
-    it.init()
+    init_.init()
 
 
-@fourty_two.command(help="show your status.")
+@fourty_two.command(help="shows your status.")
 def status():
     pass
 
 
-@fourty_two.command(help="show your review schedule.")
+@fourty_two.command(help="shows your review schedule.")
 def review():
     pass
 
 
-@fourty_two.command(help="show your available projects.")
+@fourty_two.command(help="shows your available projects.")
 def project():
     pass
 

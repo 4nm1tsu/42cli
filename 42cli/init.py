@@ -9,6 +9,10 @@ import inquirer
 from definitions import ROOT_DIR
 
 
+MSG_CONFIG_SAVED = "changes have been saved!"
+CONFIG_FILE = "config.dat"
+
+
 class Config:
     def __init__(self, uid: str, secret: str):
         self.uid = uid
@@ -22,6 +26,6 @@ def init():
     ]
     answers = inquirer.prompt(questions)
     config = Config(**answers)
-    with open(ROOT_DIR+'/config.dat', 'wb') as fp:
+    with open(ROOT_DIR+'/'+CONFIG_FILE, 'wb') as fp:
         pickle.dump(config, fp)
-    click.secho("changes have been saved!", fg='green')
+    click.secho(MSG_CONFIG_SAVED, fg='green')
