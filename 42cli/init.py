@@ -2,15 +2,13 @@
 # -*- coding: utf=8 -*-
 
 import pickle
+import importlib
 
 import click
 import inquirer
 
 from definitions import ROOT_DIR
-
-
-MSG_CONFIG_SAVED = "changes have been saved!"
-CONFIG_FILE = "config.dat"
+const = importlib.import_module('42cli.const')
 
 
 class Config:
@@ -26,6 +24,6 @@ def init():
     ]
     answers = inquirer.prompt(questions)
     config = Config(**answers)
-    with open(ROOT_DIR+'/'+CONFIG_FILE, 'wb') as fp:
+    with open(ROOT_DIR+'/'+const.CONFIG_FILE, 'wb') as fp:
         pickle.dump(config, fp)
-    click.secho(MSG_CONFIG_SAVED, fg='green')
+    click.secho(const.MSG_CONFIG_SAVED, fg='green')
