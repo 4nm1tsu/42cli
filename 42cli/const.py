@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
+MSG_API_ACCESS_ERROR = "ERROR: An error has occurred during accessing API."
 MSG_NO_CONFIG_FOUND = """no config file found.
 please use '42 init' command to finish settings.
 """

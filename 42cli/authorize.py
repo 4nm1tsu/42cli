@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
-import pickle
 import urllib.request
 import urllib.parse
 import json
@@ -13,6 +12,7 @@ import click
 
 from definitions import ROOT_DIR
 const = importlib.import_module('42cli.const')
+util = importlib.import_module('42cli.util')
 
 
 class Cache:
@@ -21,18 +21,8 @@ class Cache:
         self.deadline = deadline
 
 
-def openFileToWrite(path, content):
-    with open(path, 'wb') as fp:
-        pickle.dump(content, fp)
-
-
-def openFileToRead(path):
-    with open(path, 'rb') as fp:
-        return pickle.load(fp)
-
-
 def authorize():
-    config = openFileToRead(ROOT_DIR+'/'+const.CONFIG_FILE)
+    config = util.getConfig()
     data = {
             "grant_type": "client_credentials",
             "client_id": config.uid,
@@ -44,7 +34,7 @@ def authorize():
         auth_info = json.loads(res.read().decode("utf-8"))
     # cacheに保存
     deadline = time.time() + int(auth_info['expires_in'])
-    openFileToWrite(
+    util.openFileToWrite(
         ROOT_DIR+'/'+const.CACHE_FILE,
         Cache(auth_info, deadline)
     )
@@ -55,7 +45,7 @@ def authorize():
 def getAuthInfo():
     # cacheが存在する場合
     if os.path.exists(ROOT_DIR+'/'+const.CACHE_FILE):
-        cache = openFileToRead(ROOT_DIR+'/'+const.CACHE_FILE)
+        cache = util.getCache()
         # 期限OK
         if cache.deadline > time.time():
             auth_info = cache.auth

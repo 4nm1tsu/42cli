@@ -15,7 +15,7 @@ const = importlib.import_module("42cli.const")
 
 @pytest.fixture
 def api_config():
-    return init_.Config('hoge', 'fuga')
+    return init_.Config('hoge', 'fuga', 'username')
 
 
 class Testinit_():
