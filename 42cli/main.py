@@ -11,6 +11,7 @@ from definitions import ROOT_DIR
 const = importlib.import_module("42cli.const")
 init_ = importlib.import_module("42cli.init")
 show_username = importlib.import_module("42cli.show_username")
+project_ = importlib.import_module("42cli.project")
 
 
 def checkConfigExists():
@@ -43,6 +44,7 @@ def review():
 @fourtyTwo.command(help="shows your available projects.")
 def project():
     checkConfigExists()
+    project_.showRawResponse()
 
 
 def main():
