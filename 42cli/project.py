@@ -50,11 +50,12 @@ def cloneProject():
         ]
 
         answer = inquirer.prompt(questions)
+        url = choices[answer['repo']]
     else:
-        answer['repo'] = apiResponse['teams'][0]['repo_url']
+        url = apiResponse['teams'][0]['repo_url']
 
     try:
-        git.Repo.clone_from(choices[answer['repo']], projectName)
+        git.Repo.clone_from(url, projectName)
     except git.exc.GitCommandError:
         click.secho(const.MSG_GIT_ERROR, fg='red')
         sys.exit(1)
