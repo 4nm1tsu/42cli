@@ -32,7 +32,8 @@ Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave 
 
 
 # Author
-* hokada
+hokada
+<<hokada@student.42tokyo.jp>>
 
 # License
 "42cli" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
