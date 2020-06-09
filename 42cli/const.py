@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
-MSG_API_ACCESS_ERROR = "ERROR: An error has occurred during accessing API."
+MSG_API_ACCESS_ERROR = "An error has occurred during accessing API."
+MSG_AUTHORIZE_ERROR = "An error has occurred during authorization."
 MSG_NO_CONFIG_FOUND = """no config file found.
 please use '42 init' command to finish settings.
 """
-MSG_MAKE_CACHE = "creating cache file..."
+MSG_REQUEST_TOKEN = "requesting access token..."
+MSG_ACCESSING_API = "accessing the resources..."
 MSG_CONFIG_SAVED = "changes have been saved!"
 CONFIG_FILE = "config.dat"
 CACHE_FILE = "cache.dat"

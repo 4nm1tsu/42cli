@@ -7,8 +7,10 @@ import json
 import importlib
 import time
 import os
+import sys
 
 import click
+from halo import Halo
 
 from definitions import ROOT_DIR
 const = importlib.import_module('42cli.const')
@@ -51,10 +53,26 @@ def getAuthInfo():
             auth_info = cache.auth
         # 期限NG
         else:
-            click.secho(const.MSG_MAKE_CACHE, fg="green")
-            auth_info = authorize()
+            spinner = Halo(text=const.MSG_REQUEST_TOKEN, spinner='dots')
+            spinner.start()
+            try:
+                auth_info = authorize()
+            except Exception:
+                spinner.fail()
+                click.secho(const.MSG_AUTHORIZE_ERROR, fg='red')
+                sys.exit(1)
+            else:
+                spinner.succeed()
     else:
-        click.secho(const.MSG_MAKE_CACHE, fg="green")
-        auth_info = authorize()
+        spinner = Halo(text=const.MSG_REQUEST_TOKEN, spinner='dots')
+        spinner.start()
+        try:
+            auth_info = authorize()
+        except Exception:
+            spinner.fail()
+            click.secho(const.MSG_AUTHORIZE_ERROR, fg='red')
+            sys.exit(1)
+        else:
+            spinner.succeed()
 
     return auth_info

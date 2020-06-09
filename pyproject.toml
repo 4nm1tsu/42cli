@@ -11,6 +11,7 @@ repository = "https://github.com/dhaiibfiukkiu/42cli"
 python = "^3.8"
 click = "^7.1.2"
 inquirer = "^2.6.3"
+halo = "^0.0.29"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
