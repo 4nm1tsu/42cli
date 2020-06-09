@@ -19,21 +19,29 @@ def cloneProject():
 
     choices = {}
     for project in apiResponse['projects_users']:
-        choices[project['project']['name']] = project['id']
+        # 'in_progress' or 'finished'
+        if project['status'] == 'in_progress':
+            choices[project['project']['name']] = project['id']
 
-    questions = [
-        inquirer.List(
-            "repo",
-            message="What project do you want to clone?",
-            choices=choices.keys(),
-            carousel=True,
-        )
-    ]
+    if len(choices) == 0:
+        click.secho(const.MSG_NO_AVAILABLE_REPO, fg='cyan')
+        sys.exit(0)
+    # lenが1のときに自動で選択することはしない→ユーザへのFeedbackがないので
+    else:
+        questions = [
+            inquirer.List(
+                "repo",
+                message="What project do you want to clone?",
+                choices=choices.keys(),
+                carousel=True,
+            )
+        ]
 
-    answer = inquirer.prompt(questions)
-    projectName = answer['repo']
+        answer = inquirer.prompt(questions)
+        projectName = answer['repo']
+        id_ = choices[projectName]
 
-    apiResponse = api.apiGetProjectsUsers(authInfo, choices[answer['repo']])
+    apiResponse = api.apiGetProjectsUsers(authInfo, id_)
 
     if len(apiResponse['teams']) > 1:
         choices = {}
