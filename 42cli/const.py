@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
+MSG_NO_PROJECT_IN_PROGRESS = "There's no projects in progress."
 MSG_NO_AVAILABLE_REPO = "Sorry... There's no clonable repository."
 MSG_GIT_ERROR = "ERROR: Please make sure you have the correct access rights\
  and the repository exists."
