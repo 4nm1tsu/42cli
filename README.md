@@ -4,6 +4,7 @@
 <p align="center">
 <img src="https://img.shields.io/badge/-Linux-grey?logo=linux">
 <!--<img src="https://img.shields.io/badge/-OSX-black?logo=apple">-->
+<img src="https://circleci.com/gh/dhaiibfiukkiu/42cli/tree/master.svg?style=shield&circle-token=e5c59d1e8f71cd2535bb75c675af70944385dd57">
 <a href="https://codecov.io/gh/dhaiibfiukkiu/42cli">
   <img src="https://codecov.io/gh/dhaiibfiukkiu/42cli/branch/master/graph/badge.svg?token=AYUREEQZJI" />
 </a>
