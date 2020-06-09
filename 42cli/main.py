@@ -2,22 +2,14 @@
 # -*- coding: utf=8 -*-
 
 import importlib
-import os
-import sys
 
 import click
 
-from definitions import ROOT_DIR
 const = importlib.import_module("42cli.const")
 init_ = importlib.import_module("42cli.init")
-show_username = importlib.import_module("42cli.show_username")
+status_ = importlib.import_module("42cli.status")
 project_ = importlib.import_module("42cli.project")
-
-
-def checkConfigExists():
-    if not os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
-        click.secho(const.MSG_NO_CONFIG_FOUND, fg='red')
-        sys.exit(1)
+util = importlib.import_module("42cli.util")
 
 
 @click.group()
@@ -32,19 +24,19 @@ def init():
 
 @fourtyTwo.command(help="shows your status.")
 def status():
-    checkConfigExists()
-    show_username.showUserName()
+    util.checkConfigExists()
+    status_.showStatus()
 
 
 @fourtyTwo.command(help="shows your review schedule.")
 def review():
-    checkConfigExists()
+    util.checkConfigExists()
 
 
-@fourtyTwo.command(help="shows your available projects.")
-def project():
-    checkConfigExists()
-    project_.showRawResponse()
+@fourtyTwo.command(name="clone-project", help="clone project.")
+def clone_project():
+    util.checkConfigExists()
+    project_.cloneProject()
 
 
 def main():

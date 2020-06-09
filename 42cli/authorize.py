@@ -33,15 +33,15 @@ def authorize():
     data = urllib.parse.urlencode(data).encode("utf-8")
     token_url = "https://api.intra.42.fr/oauth/token"
     with urllib.request.urlopen(token_url, data=data) as res:
-        auth_info = json.loads(res.read().decode("utf-8"))
+        authInfo = json.loads(res.read().decode("utf-8"))
     # cacheに保存
-    deadline = time.time() + int(auth_info['expires_in'])
+    deadline = time.time() + int(authInfo['expires_in'])
     util.openFileToWrite(
         ROOT_DIR+'/'+const.CACHE_FILE,
-        Cache(auth_info, deadline)
+        Cache(authInfo, deadline)
     )
 
-    return auth_info
+    return authInfo
 
 
 def getAuthInfo():
@@ -50,13 +50,13 @@ def getAuthInfo():
         cache = util.getCache()
         # 期限OK
         if cache.deadline > time.time():
-            auth_info = cache.auth
+            authInfo = cache.auth
         # 期限NG
         else:
             spinner = Halo(text=const.MSG_REQUEST_TOKEN, spinner='dots')
             spinner.start()
             try:
-                auth_info = authorize()
+                authInfo = authorize()
             except Exception:
                 spinner.fail()
                 click.secho(const.MSG_AUTHORIZE_ERROR, fg='red')
@@ -67,7 +67,7 @@ def getAuthInfo():
         spinner = Halo(text=const.MSG_REQUEST_TOKEN, spinner='dots')
         spinner.start()
         try:
-            auth_info = authorize()
+            authInfo = authorize()
         except Exception:
             spinner.fail()
             click.secho(const.MSG_AUTHORIZE_ERROR, fg='red')
@@ -75,4 +75,4 @@ def getAuthInfo():
         else:
             spinner.succeed()
 
-    return auth_info
+    return authInfo

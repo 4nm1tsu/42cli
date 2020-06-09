@@ -3,6 +3,10 @@
 
 import pickle
 import importlib
+import os
+import sys
+
+import click
 
 from definitions import ROOT_DIR
 const = importlib.import_module('42cli.const')
@@ -24,3 +28,9 @@ def getConfig():
 
 def getCache():
     return openFileToRead(ROOT_DIR+'/'+const.CACHE_FILE)
+
+
+def checkConfigExists():
+    if not os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
+        click.secho(const.MSG_NO_CONFIG_FOUND, fg='red')
+        sys.exit(1)
