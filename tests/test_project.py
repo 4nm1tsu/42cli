@@ -208,7 +208,7 @@ class TestProject():
                     "locked?": True,
                     "validated?": None,
                     "closed?": True,
-                    "repo_url": 'git@vogsphere-v2.42tokyo.jp:vogsphere/intra-uuid-fa13dcf8-b055-4c3d-a4f6-e14ddcdbe827-3017110',
+                    "repo_url": 'hoge',
                     "repo_uuid": "intra-uuid-0d4153cd-21b7-4f1a-a526-297314ddc61d-18",
                     "locked_at": "2017-11-22T13:41:30.895Z",
                     "closed_at": "2017-11-22T13:41:30.919Z",
