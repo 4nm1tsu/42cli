@@ -4,12 +4,10 @@
 import pickle
 import importlib
 import os
-import sys
-
-import click
 
 from definitions import ROOT_DIR
-const = importlib.import_module('42cli.const')
+const = importlib.import_module("42cli.const")
+exception = importlib.import_module("42cli.exception")
 
 
 def openFileToWrite(path, content):
@@ -32,5 +30,4 @@ def getCache():
 
 def checkConfigExists():
     if not os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
-        click.secho(const.MSG_NO_CONFIG_FOUND, fg='red')
-        sys.exit(1)
+        raise exception.NoConfigFoundError(const.MSG_NO_CONFIG_FOUND_ERROR)

@@ -5,13 +5,12 @@ import urllib.request
 import urllib.parse
 import json
 import importlib
-import sys
 
-import click
 from halo import Halo
 
 const = importlib.import_module('42cli.const')
 util = importlib.import_module('42cli.util')
+exception = importlib.import_module("42cli.exception")
 
 
 def apiGetUsers(authInfo):
@@ -35,8 +34,7 @@ def apiAccess(authInfo, path):
             apiResponse = json.loads(response.read().decode("utf-8"))
     except Exception:
         spinner.fail()
-        click.secho(const.MSG_API_ACCESS_ERROR, fg='red')
-        sys.exit(1)
+        raise exception.ApiAccessError(const.MSG_API_ACCESS_ERROR)
     else:
         spinner.succeed()
         return apiResponse
