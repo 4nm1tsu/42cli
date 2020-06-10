@@ -18,17 +18,24 @@
 Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 </p>
 
-# DEMO
+<!--# DEMO-->
 
-# Features
+<!--# Features-->
 
 # Requirement
 * Python3.8.2
 
-# Installation
+<!--# Installation-->
 
+<!--# Usage-->
 
-# Usage
+# FAQ
+## how to activate shell completion?
+Here is the script.
+```
+eval "$(_42_COMPLETE=source_bash 42)" 
+```
+If you use zsh, you just need to replace `source_bash` with `source_zsh`.
 
 
 # Author
