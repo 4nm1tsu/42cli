@@ -2,7 +2,6 @@
 # -*- coding: utf=8 -*-
 
 import importlib
-import sys
 
 import inquirer
 import git
@@ -11,6 +10,7 @@ import click
 authorize = importlib.import_module("42cli.authorize")
 api = importlib.import_module("42cli.api")
 const = importlib.import_module("42cli.const")
+exception = importlib.import_module("42cli.exception")
 
 
 def cloneProject():
@@ -25,12 +25,12 @@ def cloneProject():
 
     if len(choices) == 0:
         click.secho(const.MSG_NO_AVAILABLE_REPO, fg='cyan')
-        sys.exit(0)
+        return
     # lenが1のときに自動で選択することはしない→ユーザへのFeedbackがないので
     else:
         questions = [
             inquirer.List(
-                "repo",
+                "name",
                 message="What project do you want to clone?",
                 choices=choices.keys(),
                 carousel=True,
@@ -38,7 +38,7 @@ def cloneProject():
         ]
 
         answer = inquirer.prompt(questions)
-        projectName = answer['repo']
+        projectName = answer['name']
         id_ = choices[projectName]
 
     apiResponse = api.apiGetProjectsUsers(authInfo, id_)
@@ -50,7 +50,7 @@ def cloneProject():
 
         questions = [
             inquirer.List(
-                "repo",
+                "team",
                 message="What project do you want to clone?",
                 choices=choices.keys(),
                 carousel=True,
@@ -58,12 +58,11 @@ def cloneProject():
         ]
 
         answer = inquirer.prompt(questions)
-        url = choices[answer['repo']]
+        url = choices[answer['team']]
     else:
         url = apiResponse['teams'][0]['repo_url']
 
     try:
         git.Repo.clone_from(url, projectName)
-    except git.exc.GitCommandError:
-        click.secho(const.MSG_GIT_ERROR, fg='red')
-        sys.exit(1)
+    except Exception:
+        raise exception.GitError(const.MSG_GIT_ERROR)

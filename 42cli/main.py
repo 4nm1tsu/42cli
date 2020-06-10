@@ -24,19 +24,20 @@ def init():
 
 @fourtyTwo.command(help="shows your status.")
 def status():
-    util.checkConfigExists()
-    status_.showStatus()
-
-
-@fourtyTwo.command(help="shows your review schedule.")
-def review():
-    util.checkConfigExists()
+    try:
+        util.checkConfigExists()
+        status_.showStatus()
+    except Exception as e:
+        click.secho(str(e), fg='red')
 
 
 @fourtyTwo.command(name="clone-project", help="clone project.")
 def clone_project():
-    util.checkConfigExists()
-    project_.cloneProject()
+    try:
+        util.checkConfigExists()
+        project_.cloneProject()
+    except Exception as e:
+        click.secho(str(e), fg='red')
 
 
 def main():

@@ -15,6 +15,7 @@ from halo import Halo
 from definitions import ROOT_DIR
 const = importlib.import_module('42cli.const')
 util = importlib.import_module('42cli.util')
+exception = importlib.import_module("42cli.exception")
 
 
 class Cache:
@@ -59,8 +60,7 @@ def getAuthInfo():
                 authInfo = authorize()
             except Exception:
                 spinner.fail()
-                click.secho(const.MSG_AUTHORIZE_ERROR, fg='red')
-                sys.exit(1)
+                raise exception.AuthorizeError(const.MSG_AUTHORIZE_ERROR)
             else:
                 spinner.succeed()
     else:
@@ -70,8 +70,7 @@ def getAuthInfo():
             authInfo = authorize()
         except Exception:
             spinner.fail()
-            click.secho(const.MSG_AUTHORIZE_ERROR, fg='red')
-            sys.exit(1)
+            raise exception.AuthorizeError(const.MSG_AUTHORIZE_ERROR)
         else:
             spinner.succeed()
 
