@@ -8,7 +8,7 @@ import click
 import inquirer
 
 from definitions import ROOT_DIR
-const = importlib.import_module('42cli.const')
+const = importlib.import_module('fortytwocli.const')
 
 
 class Config:

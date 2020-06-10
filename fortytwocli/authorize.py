@@ -13,9 +13,9 @@ import click
 from halo import Halo
 
 from definitions import ROOT_DIR
-const = importlib.import_module('42cli.const')
-util = importlib.import_module('42cli.util')
-exception = importlib.import_module("42cli.exception")
+const = importlib.import_module('fortytwocli.const')
+util = importlib.import_module('fortytwocli.util')
+exception = importlib.import_module("fortytwocli.exception")
 
 
 class Cache:

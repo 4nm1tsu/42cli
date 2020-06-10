@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "42cli"
+name = "fortytwocli"
 version = "0.1.0"
 description = "command line tool for 42 intra."
 license = "MIT"
@@ -19,7 +19,7 @@ pytest = "^5.2"
 pytest-cov = "^2.9.0"
 
 [tool.poetry.scripts]
-42 = "42cli.main:fourtyTwo"
+42 = "fortytwocli.main:fourtyTwo"
 
 [build-system]
 requires = ["poetry>=0.12"]

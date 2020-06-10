@@ -5,11 +5,11 @@ import importlib
 
 import click
 
-const = importlib.import_module("42cli.const")
-init_ = importlib.import_module("42cli.init")
-status_ = importlib.import_module("42cli.status")
-project_ = importlib.import_module("42cli.project")
-util = importlib.import_module("42cli.util")
+const = importlib.import_module("fortytwocli.const")
+init_ = importlib.import_module("fortytwocli.init")
+status_ = importlib.import_module("fortytwocli.status")
+project_ = importlib.import_module("fortytwocli.project")
+util = importlib.import_module("fortytwocli.util")
 
 
 @click.group()

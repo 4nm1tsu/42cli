@@ -7,10 +7,10 @@ import inquirer
 import git
 import click
 
-authorize = importlib.import_module("42cli.authorize")
-api = importlib.import_module("42cli.api")
-const = importlib.import_module("42cli.const")
-exception = importlib.import_module("42cli.exception")
+authorize = importlib.import_module("fortytwocli.authorize")
+api = importlib.import_module("fortytwocli.api")
+const = importlib.import_module("fortytwocli.const")
+exception = importlib.import_module("fortytwocli.exception")
 
 
 def cloneProject():

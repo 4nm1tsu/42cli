@@ -4,9 +4,9 @@
 import importlib
 from datetime import datetime
 
-authorize = importlib.import_module("42cli.authorize")
-api = importlib.import_module("42cli.api")
-const = importlib.import_module("42cli.const")
+authorize = importlib.import_module("fortytwocli.authorize")
+api = importlib.import_module("fortytwocli.api")
+const = importlib.import_module("fortytwocli.const")
 
 
 def showStatus():

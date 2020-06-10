@@ -6,9 +6,9 @@ from unittest import mock
 
 import pytest
 
-project = importlib.import_module("42cli.project")
-const = importlib.import_module("42cli.const")
-exception = importlib.import_module("42cli.exception")
+project = importlib.import_module("fortytwocli.project")
+const = importlib.import_module("fortytwocli.const")
+exception = importlib.import_module("fortytwocli.exception")
 
 
 @pytest.fixture
@@ -17,10 +17,10 @@ def api_config():
 
 
 class TestProject():
-    @mock.patch('42cli.init.inquirer.prompt')
-    @mock.patch("42cli.api.apiGetProjectsUsers")
-    @mock.patch("42cli.api.apiGetUsers")
-    @mock.patch("42cli.authorize.getAuthInfo")
+    @mock.patch('fortytwocli.init.inquirer.prompt')
+    @mock.patch("fortytwocli.api.apiGetProjectsUsers")
+    @mock.patch("fortytwocli.api.apiGetUsers")
+    @mock.patch("fortytwocli.authorize.getAuthInfo")
     def test_cloneProject(
         self,
         getAuthInfoMock,

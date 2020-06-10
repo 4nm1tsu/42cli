@@ -8,9 +8,9 @@ import importlib
 
 from halo import Halo
 
-const = importlib.import_module('42cli.const')
-util = importlib.import_module('42cli.util')
-exception = importlib.import_module("42cli.exception")
+const = importlib.import_module('fortytwocli.const')
+util = importlib.import_module('fortytwocli.util')
+exception = importlib.import_module("fortytwocli.exception")
 
 
 def apiGetUsers(authInfo):

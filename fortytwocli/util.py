@@ -6,8 +6,8 @@ import importlib
 import os
 
 from definitions import ROOT_DIR
-const = importlib.import_module("42cli.const")
-exception = importlib.import_module("42cli.exception")
+const = importlib.import_module("fortytwocli.const")
+exception = importlib.import_module("fortytwocli.exception")
 
 
 def openFileToWrite(path, content):
