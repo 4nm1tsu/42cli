@@ -8,10 +8,10 @@
 <a href="https://codecov.io/gh/dhaiibfiukkiu/42cli">
   <img src="https://codecov.io/gh/dhaiibfiukkiu/42cli/branch/master/graph/badge.svg?token=AYUREEQZJI" />
 </a>
-<img src="https://img.shields.io/github/issues/dhaiibfiukkiu/42cli">
-<img src="https://img.shields.io/github/forks/dhaiibfiukkiu/42cli">
-<img src="https://img.shields.io/github/stars/dhaiibfiukkiu/42cli">
-<img src="https://img.shields.io/github/license/dhaiibfiukkiu/42cli">
+<a href="https://github.com/dhaiibfiukkiu/42cli/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/dhaiibfiukkiu/42cli"></a>
+<a href="https://github.com/dhaiibfiukkiu/42cli/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/dhaiibfiukkiu/42cli"></a>
+<a href="https://github.com/dhaiibfiukkiu/42cli/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/dhaiibfiukkiu/42cli"></a>
+<a href="https://github.com/dhaiibfiukkiu/42cli/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/dhaiibfiukkiu/42cli"></a>
 </p>
 <p align="center">command line tool for 42 intra.</p>
 <p align="right">
