@@ -8,7 +8,6 @@ from unittest import mock
 
 import pytest
 
-from definitions import ROOT_DIR
 init_ = importlib.import_module("fortytwocli.init")
 const = importlib.import_module("fortytwocli.const")
 
@@ -21,12 +20,12 @@ def api_config():
 class Testinit_():
     @classmethod
     def setup_class(cls):
-        if os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
-            os.remove(ROOT_DIR+'/'+const.CONFIG_FILE)
+        if os.path.exists(const.CONFIG_FILE):
+            os.remove(const.CONFIG_FILE)
 
     def teardown_method(self, method):
-        if os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
-            os.remove(ROOT_DIR+'/'+const.CONFIG_FILE)
+        if os.path.exists(const.CONFIG_FILE):
+            os.remove(const.CONFIG_FILE)
 
     @mock.patch('fortytwocli.init.inquirer.prompt')
     def test_init(self, inquirerMock, api_config):
@@ -36,7 +35,7 @@ class Testinit_():
             'username': 'baz',
         }
         init_.init()
-        with open(ROOT_DIR+'/'+const.CONFIG_FILE, 'rb') as fp:
+        with open(const.CONFIG_FILE, 'rb') as fp:
             config = pickle.load(fp)
         assert api_config.uid == config.uid
         assert api_config.secret == config.secret

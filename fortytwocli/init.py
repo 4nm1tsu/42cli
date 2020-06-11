@@ -7,7 +7,6 @@ import importlib
 import click
 import inquirer
 
-from definitions import ROOT_DIR
 const = importlib.import_module('fortytwocli.const')
 
 
@@ -26,6 +25,6 @@ def init():
     ]
     answers = inquirer.prompt(questions)
     config = Config(**answers)
-    with open(ROOT_DIR+'/'+const.CONFIG_FILE, 'wb') as fp:
+    with open(const.CONFIG_FILE, 'wb') as fp:
         pickle.dump(config, fp)
     click.secho(const.MSG_CONFIG_SAVED, fg='green')

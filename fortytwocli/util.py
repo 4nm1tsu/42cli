@@ -5,7 +5,6 @@ import pickle
 import importlib
 import os
 
-from definitions import ROOT_DIR
 const = importlib.import_module("fortytwocli.const")
 exception = importlib.import_module("fortytwocli.exception")
 
@@ -21,13 +20,13 @@ def openFileToRead(path):
 
 
 def getConfig():
-    return openFileToRead(ROOT_DIR+'/'+const.CONFIG_FILE)
+    return openFileToRead(const.CONFIG_FILE)
 
 
 def getCache():
-    return openFileToRead(ROOT_DIR+'/'+const.CACHE_FILE)
+    return openFileToRead(const.CACHE_FILE)
 
 
 def checkConfigExists():
-    if not os.path.exists(ROOT_DIR+'/'+const.CONFIG_FILE):
+    if not os.path.exists(const.CONFIG_FILE):
         raise exception.NoConfigFoundError(const.MSG_NO_CONFIG_FOUND_ERROR)

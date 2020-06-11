@@ -7,12 +7,9 @@ import json
 import importlib
 import time
 import os
-import sys
 
-import click
 from halo import Halo
 
-from definitions import ROOT_DIR
 const = importlib.import_module('fortytwocli.const')
 util = importlib.import_module('fortytwocli.util')
 exception = importlib.import_module("fortytwocli.exception")
@@ -38,7 +35,7 @@ def authorize():
     # cacheに保存
     deadline = time.time() + int(authInfo['expires_in'])
     util.openFileToWrite(
-        ROOT_DIR+'/'+const.CACHE_FILE,
+        const.CACHE_FILE,
         Cache(authInfo, deadline)
     )
 
@@ -47,7 +44,7 @@ def authorize():
 
 def getAuthInfo():
     # cacheが存在する場合
-    if os.path.exists(ROOT_DIR+'/'+const.CACHE_FILE):
+    if os.path.exists(const.CACHE_FILE):
         cache = util.getCache()
         # 期限OK
         if cache.deadline > time.time():

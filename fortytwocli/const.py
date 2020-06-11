@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
+import os
+
 MSG_NO_PROJECT_IN_PROGRESS = "There's no projects in progress."
 MSG_NO_AVAILABLE_REPO = "Sorry... There's no clonable repository."
 MSG_GIT_ERROR = "ERROR: Please make sure you have the correct access rights\
@@ -13,5 +15,6 @@ please use '42 init' command to finish settings.
 MSG_REQUEST_TOKEN = "requesting access token..."
 MSG_ACCESSING_API = "accessing the resources..."
 MSG_CONFIG_SAVED = "changes have been saved!"
-CONFIG_FILE = "config.dat"
-CACHE_FILE = "cache.dat"
+FILE_PATH = os.path.dirname(os.path.abspath(__file__)) + '/'
+CONFIG_FILE = FILE_PATH+"config.dat"
+CACHE_FILE = FILE_PATH+"cache.dat"

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fortytwocli"
-version = "0.1.0"
+version = "0.1.1"
 description = "command line tool for 42 intra."
 license = "MIT"
 authors = ["Hibiki Okada <hokada@student.42tokyo.jp>"]
