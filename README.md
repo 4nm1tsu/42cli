@@ -30,13 +30,14 @@ Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave 
 # Requirement
 * Python3.8.2
 
-<!--# Installation-->
+# Installation
+```pip install fortytwocli```
 
 <!--# Usage-->
 
 # FAQ
 ## how to activate shell completion?
-Here is the script.
+Here is activation script.
 ```
 eval "$(_42_COMPLETE=source_bash 42)" 
 ```
