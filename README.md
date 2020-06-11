@@ -12,6 +12,11 @@
 <a href="https://github.com/dhaiibfiukkiu/42cli/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/dhaiibfiukkiu/42cli"></a>
 <a href="https://github.com/dhaiibfiukkiu/42cli/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/dhaiibfiukkiu/42cli"></a>
 <a href="https://github.com/dhaiibfiukkiu/42cli/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/dhaiibfiukkiu/42cli"></a>
+<a href="https://pypi.org/project/fortytwocli/">
+<img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/fortytwocli"><a/>
+<a href="https://pypi.org/project/fortytwocli/">
+<img alt="PyPI" src="https://img.shields.io/pypi/v/fortytwocli"></a>
+  
 </p>
 <p align="center">command line tool for 42 intra.</p>
 <p align="right">
