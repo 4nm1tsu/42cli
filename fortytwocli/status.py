@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
-import importlib
 from datetime import datetime
 
-authorize = importlib.import_module("fortytwocli.authorize")
-api = importlib.import_module("fortytwocli.api")
-const = importlib.import_module("fortytwocli.const")
+import fortytwocli.authorize as authorize
+import fortytwocli.api as api
+import fortytwocli.const as const
 
 
 def showStatus():

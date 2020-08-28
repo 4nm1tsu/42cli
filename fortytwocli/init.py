@@ -2,12 +2,11 @@
 # -*- coding: utf=8 -*-
 
 import pickle
-import importlib
 
 import click
 import inquirer
 
-const = importlib.import_module('fortytwocli.const')
+import fortytwocli.const as const
 
 
 class Config:

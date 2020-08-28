@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
-import importlib
-
 import click
 
-const = importlib.import_module("fortytwocli.const")
-init_ = importlib.import_module("fortytwocli.init")
-status_ = importlib.import_module("fortytwocli.status")
-project_ = importlib.import_module("fortytwocli.project")
-util = importlib.import_module("fortytwocli.util")
+import fortytwocli.init as init_
+import fortytwocli.status as status_
+import fortytwocli.project as project
+import fortytwocli.util as util
 
 
 @click.group()
@@ -35,7 +32,7 @@ def status():
 def clone_project():
     try:
         util.checkConfigExists()
-        project_.cloneProject()
+        project.cloneProject()
     except Exception as e:
         click.secho(str(e), fg='red')
 

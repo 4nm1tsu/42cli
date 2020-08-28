@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf=8 -*-
 
-import importlib
-
 import inquirer
 import git
 import click
 
-authorize = importlib.import_module("fortytwocli.authorize")
-api = importlib.import_module("fortytwocli.api")
-const = importlib.import_module("fortytwocli.const")
-exception = importlib.import_module("fortytwocli.exception")
+import fortytwocli.authorize as authorize
+import fortytwocli.api as api
+import fortytwocli.const as const
+import fortytwocli.exception as exception
 
 
 def cloneProject():

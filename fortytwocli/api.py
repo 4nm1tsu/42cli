@@ -4,13 +4,12 @@
 import urllib.request
 import urllib.parse
 import json
-import importlib
 
 from halo import Halo
 
-const = importlib.import_module('fortytwocli.const')
-util = importlib.import_module('fortytwocli.util')
-exception = importlib.import_module("fortytwocli.exception")
+import fortytwocli.const as const
+import fortytwocli.util as util
+import fortytwocli.exception as exception
 
 
 def apiGetUsers(authInfo):

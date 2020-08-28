@@ -2,11 +2,10 @@
 # -*- coding: utf=8 -*-
 
 import pickle
-import importlib
 import os
 
-const = importlib.import_module("fortytwocli.const")
-exception = importlib.import_module("fortytwocli.exception")
+import fortytwocli.const as const
+import fortytwocli.exception as exception
 
 
 def openFileToWrite(path, content):
