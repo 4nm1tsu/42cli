@@ -7,6 +7,7 @@ import fortytwocli.init as init_
 import fortytwocli.status as status_
 import fortytwocli.project as project
 import fortytwocli.util as util
+import fortytwocli.ipCalc as ip
 
 
 @click.group()
@@ -29,12 +30,17 @@ def status():
 
 
 @fourtyTwo.command(name="clone-project", help="clone project.")
-def clone_project():
+def cloneProject():
     try:
         util.checkConfigExists()
         project.cloneProject()
     except Exception as e:
         click.secho(str(e), fg='red')
+
+
+@fourtyTwo.command(name="ip", help="launch ip address calculator.")
+def ipCalc():
+    ip.calc()
 
 
 def main():
