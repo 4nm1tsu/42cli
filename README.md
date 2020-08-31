@@ -16,7 +16,8 @@
 <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/fortytwocli"><a/>
 <a href="https://pypi.org/project/fortytwocli/">
 <img alt="PyPI" src="https://img.shields.io/pypi/v/fortytwocli"></a>
-  
+<a href="https://pypi.org/project/fortytwocli/">
+<img alt="PyPI" src="https://pepy.tech/badge/fortytwocli"></a>
 </p>
 <p align="center">command line tool for 42 intra.</p>
 <p align="right">
