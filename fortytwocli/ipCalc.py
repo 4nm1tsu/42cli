@@ -39,8 +39,11 @@ def calc():
             '[violet]Network Address[/violet]\n{}'.format(str(ip.network_address)))
         renderables.append(
             '[blue]Broadcast Address[/blue]\n{}'.format(str(ip.broadcast_address)))
-        renderables.append(
-            '[green]Number of Usable Hosts[/green]\n{}'.format(str(ip.num_addresses - 2)))
+        if (ip.num_addresses - 2) > 0:
+            renderables.append(
+                '[green]Number of Usable Hosts[/green]\n{}'.format(str(ip.num_addresses - 2)))
+        else:
+            renderables.append('[green]Number of Usable Hosts[/green]\nNothing.')
         renderables.append(
             '[magenta]Total Number of Hosts[/magenta]\n{}'.format(str(ip.num_addresses)))
         renderables.append(
