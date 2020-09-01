@@ -4,7 +4,7 @@ version = "0.2.1"
 description = "command line tool for 42 intra."
 license = "MIT"
 authors = ["Hibiki Okada <hokada@student.42tokyo.jp>"]
-readme = "README.rst"
+readme = "README.md"
 repository = "https://github.com/dhaiibfiukkiu/42cli"
 
 [tool.poetry.dependencies]
